@@ -1030,7 +1030,7 @@ with tabs[5]:
 st.markdown("---")
 st.markdown("""
     <div class="footer">
-        <p>© 2025 Technical Vision Presentation | For Stakeholder Review</p>
+        <p>© 2025 Technical Vision Presentation By Umesh Rathod | For Stakeholder Review</p>
         <p>Confidential & Proprietary</p>
     </div>
 """, unsafe_allow_html=True)
