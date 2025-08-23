@@ -354,14 +354,16 @@ div[data-testid="column"] {
 }
 /* Top navigation */
 .top-nav {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(8px);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--dark-border);
-    padding: 0.5rem 1rem;
-    box-shadow: 0 6px 18px -14px rgba(0,0,0,.8);
+    padding: 0.75rem 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 .top-nav .brand-title {
     font-size: 1.35rem;
@@ -4832,26 +4834,80 @@ def render_next_steps():
 
 # Top brand bar
 st.markdown("""
+    <style>
+    .top-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #334155;
+        padding: 0.75rem 1rem;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .sticky-tabs {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #334155;
+        padding: 0.5rem 1rem;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    .content-wrapper {
+        padding-top: 140px;
+    }
+    </style>
+
     <div class="top-nav">
         <div class="content-container" style="display:flex; align-items:center; justify-content:center; gap:.75rem;">
             <span style="font-size:1.5rem;">🚀</span>
             <span class="brand-title" style="font-weight:700; letter-spacing:.3px; color:#cbd5e1;">Technical Vision Deck</span>
         </div>
     </div>
+
+    <div class="sticky-tabs">
 """, unsafe_allow_html=True)
 
 # Enhanced top navigation tabs
 st.markdown("""
     <style>
-    /* Enhanced tab styling */
+    /* Sticky navigation */
+    .top-nav {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+        background: rgba(15, 23, 42, 0.95) !important;
+        backdrop-filter: blur(12px) !important;
+    }
+
     .stTabs [data-baseweb="tab-list"] {
+        position: fixed !important;
+        top: 60px !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 999 !important;
         gap: 0.5rem;
         background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
         padding: 1rem;
-        border-radius: 16px;
+        border-radius: 0;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         border: 1px solid #475569;
-        margin: 2rem 0;
+        margin: 0;
+        backdrop-filter: blur(12px);
+    }
+
+    .stTabs [data-baseweb="tab-panel"] {
+        padding-top: 140px !important;
     }
 
     .stTabs [data-baseweb="tab"] {
