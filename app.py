@@ -1237,12 +1237,12 @@ def render_projects():
                 st.markdown(f"""
                 <div class="project-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-radius: 16px; padding: 2rem; color: #1a202c; margin-bottom: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 2rem;">{metrics_html}</div>
-                    <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; box-shadow: 0 2px 12px rgba(0,0,0,0.05);">
-                        <h4 style="color: #ffffff; margin-bottom: 1.25rem; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; text-shadow: 0 2px 6px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8);">
+                    <div style="background: #000000; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #333333; box-shadow: 0 2px 12px rgba(0,0,0,0.3);">
+                        <h4 style="color: #ffffff; margin-bottom: 1.25rem; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
                             <span style="font-size: 1.3rem;">✨</span>
                             <span>Key Features</span>
                         </h4>
-                        <ul style="list-style: none; padding: 0; margin: 0;">{feats_html}</ul>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #ffffff;">{feats_html}</ul>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div style="background: #475569; padding: 0.8rem 1.2rem; border-radius: 8px; border: 1px solid #64748b; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
@@ -1412,12 +1412,12 @@ def render_projects():
                 st.markdown(f"""
                 <div class="project-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-radius: 16px; padding: 2rem; color: #1a202c; margin-bottom: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 2rem;">{metrics_html}</div>
-                    <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; box-shadow: 0 2px 12px rgba(0,0,0,0.05);">
-                        <h4 style="color: #ffffff; margin-bottom: 1.25rem; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; text-shadow: 0 2px 6px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8);">
+                    <div style="background: #000000; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #333333; box-shadow: 0 2px 12px rgba(0,0,0,0.3);">
+                        <h4 style="color: #ffffff; margin-bottom: 1.25rem; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
                             <span style="font-size: 1.3rem;">✨</span>
                             <span>Key Features</span>
                         </h4>
-                        <ul style="list-style: none; padding: 0; margin: 0;">{feats_html}</ul>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #ffffff;">{feats_html}</ul>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div style="background: #475569; padding: 0.8rem 1.2rem; border-radius: 8px; border: 1px solid #64748b; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
@@ -1651,9 +1651,9 @@ def render_projects():
                 st.markdown(f"""
                 <div class="project-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; padding: 2rem; color: white; margin-bottom: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 2rem;">{metrics_html}</div>
-                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; backdrop-filter: blur(10px);">
-                        <h4 style="color: white; margin-bottom: 1rem; font-size: 1.1rem;">✨ Key Features</h4>
-                        <ul style="list-style: none; padding: 0; margin: 0;">{feats_html}</ul>
+                    <div style="background: #000000; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #333333; box-shadow: 0 2px 12px rgba(0,0,0,0.3);">
+                        <h4 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 700;">✨ Key Features</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #ffffff;">{feats_html}</ul>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div style="background: rgba(255,255,255,0.1); padding: 0.8rem 1.2rem; border-radius: 8px; backdrop-filter: blur(10px);">
@@ -1970,9 +1970,9 @@ def render_projects():
                 st.markdown(f"""
                 <div class="project-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; padding: 2rem; color: white; margin-bottom: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 2rem;">{metrics_html}</div>
-                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; backdrop-filter: blur(10px);">
-                        <h4 style="color: white; margin-bottom: 1rem; font-size: 1.1rem;">✨ Key Features</h4>
-                        <ul style="list-style: none; padding: 0; margin: 0;">{feats_html}</ul>
+                    <div style="background: #000000; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #333333; box-shadow: 0 2px 12px rgba(0,0,0,0.3);">
+                        <h4 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 700;">✨ Key Features</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #ffffff;">{feats_html}</ul>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div style="background: rgba(255,255,255,0.1); padding: 0.8rem 1.2rem; border-radius: 8px; backdrop-filter: blur(10px);">
@@ -2298,12 +2298,12 @@ def render_projects():
                 st.markdown(f"""
                 <div class="project-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-radius: 16px; padding: 2rem; color: #1a202c; margin-bottom: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 2rem;">{metrics_html}</div>
-                    <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; box-shadow: 0 2px 12px rgba(0,0,0,0.05);">
-                        <h4 style="color: #ffffff; margin-bottom: 1.25rem; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; text-shadow: 0 2px 6px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8);">
+                    <div style="background: #000000; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #333333; box-shadow: 0 2px 12px rgba(0,0,0,0.3);">
+                        <h4 style="color: #ffffff; margin-bottom: 1.25rem; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
                             <span style="font-size: 1.3rem;">✨</span>
                             <span>Key Features</span>
                         </h4>
-                        <ul style="list-style: none; padding: 0; margin: 0;">{feats_html}</ul>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #ffffff;">{feats_html}</ul>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div style="background: #475569; padding: 0.8rem 1.2rem; border-radius: 8px; border: 1px solid #64748b; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
@@ -2690,12 +2690,12 @@ def render_projects():
                 st.markdown(f"""
                 <div class="project-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-radius: 16px; padding: 2rem; color: #1a202c; margin-bottom: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 2rem;">{metrics_html}</div>
-                    <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; box-shadow: 0 2px 12px rgba(0,0,0,0.05);">
-                        <h4 style="color: #ffffff; margin-bottom: 1.25rem; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; text-shadow: 0 2px 6px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8);">
+                    <div style="background: #000000; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #333333; box-shadow: 0 2px 12px rgba(0,0,0,0.3);">
+                        <h4 style="color: #ffffff; margin-bottom: 1.25rem; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
                             <span style="font-size: 1.3rem;">✨</span>
                             <span>Key Features</span>
                         </h4>
-                        <ul style="list-style: none; padding: 0; margin: 0;">{feats_html}</ul>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #ffffff;">{feats_html}</ul>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div style="background: #475569; padding: 0.8rem 1.2rem; border-radius: 8px; border: 1px solid #64748b; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
@@ -3131,12 +3131,12 @@ def render_projects():
             </summary>
             <div class="project-card" style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); border-radius: 16px; padding: 2rem; color: #f1f5f9; margin-bottom: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.15); border: 1px solid #475569;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 2rem;">{metrics_html}</div>
-                <div style="background: #334155; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #475569; box-shadow: 0 2px 12px rgba(0,0,0,0.2);">
-                    <h4 style="color: #ffffff; margin-bottom: 1.25rem; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+                <div style="background: #000000; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #333333; box-shadow: 0 2px 12px rgba(0,0,0,0.3);">
+                    <h4 style="color: #ffffff; margin-bottom: 1.25rem; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
                         <span style="font-size: 1.3rem;">✨</span>
                         <span>Key Features</span>
                     </h4>
-                    <ul style="list-style: none; padding: 0; margin: 0;">{feats_html}</ul>
+                    <ul style="list-style: none; padding: 0; margin: 0; color: #ffffff;">{feats_html}</ul>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                     <div style="background: #334155; padding: 0.8rem 1.2rem; border-radius: 8px; border: 1px solid #475569;">
