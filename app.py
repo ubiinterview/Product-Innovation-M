@@ -2,8 +2,6 @@ import streamlit as st
 import graphviz as graphviz
 import re
 
-#IMPROVED UI/UX EXPERIENCE
-
 # Set page configuration
 st.set_page_config(
     page_title="Technical Vision - Data & GenAI Product Innovation",
@@ -1193,25 +1191,49 @@ def render_projects():
     if 'show_autoops_arch' not in st.session_state:
         st.session_state.show_autoops_arch = False
 
+    # Check if user wants to view AutoOps demo
+    if 'show_autoops_demo' not in st.session_state:
+        st.session_state.show_autoops_demo = False
+
     # Check if user wants to view Document Intelligence architecture
     if 'show_doc_intel_arch' not in st.session_state:
         st.session_state.show_doc_intel_arch = False
+
+    # Check if user wants to view Document Intelligence demo
+    if 'show_doc_intel_demo' not in st.session_state:
+        st.session_state.show_doc_intel_demo = False
 
     # Check if user wants to view Virtual DataLake architecture
     if 'show_virtual_dl_arch' not in st.session_state:
         st.session_state.show_virtual_dl_arch = False
 
+    # Check if user wants to view Virtual DataLake demo
+    if 'show_virtual_dl_demo' not in st.session_state:
+        st.session_state.show_virtual_dl_demo = False
+
     # Check if user wants to view Synthetic Data Generator architecture
     if 'show_synthetic_data_arch' not in st.session_state:
         st.session_state.show_synthetic_data_arch = False
+
+    # Check if user wants to view Synthetic Data Generator demo
+    if 'show_synthetic_data_demo' not in st.session_state:
+        st.session_state.show_synthetic_data_demo = False
 
     # Check if user wants to view DQM & ETL Testing Framework architecture
     if 'show_dqm_etl_arch' not in st.session_state:
         st.session_state.show_dqm_etl_arch = False
 
+    # Check if user wants to view DQM & ETL Testing Framework demo
+    if 'show_dqm_etl_demo' not in st.session_state:
+        st.session_state.show_dqm_etl_demo = False
+
     # Check if user wants to view Deployment Framework architecture
     if 'show_deployment_framework_arch' not in st.session_state:
         st.session_state.show_deployment_framework_arch = False
+
+    # Check if user wants to view Deployment Framework demo
+    if 'show_deployment_framework_demo' not in st.session_state:
+        st.session_state.show_deployment_framework_demo = False
 
     # Polished accordions
     cards = [
@@ -1343,15 +1365,20 @@ def render_projects():
                 </div>
                 """, unsafe_allow_html=True)
 
-                # Add Streamlit buttons for AutoOps architecture and repo inside the card
+                # Add Streamlit buttons for AutoOps architecture, demo, and repo inside the card
                 st.markdown('<div style="margin: 1.5rem 0;">', unsafe_allow_html=True)
-                col1, col2 = st.columns(2)
+                col1, col2, col3 = st.columns(3)
                 with col1:
                     if st.button("🏗️ View Architecture", key="autoops_arch_btn",
                                  help="Click to view the detailed architecture diagram"):
                         st.session_state.show_autoops_arch = not st.session_state.show_autoops_arch
                         st.rerun()
                 with col2:
+                    if st.button("🎬 View Demo", key="autoops_demo_btn",
+                                 help="Click to view the AutoOps demo"):
+                        st.session_state.show_autoops_demo = not st.session_state.show_autoops_demo
+                        st.rerun()
+                with col3:
                     if st.button("📂 Explore Repository", key="autoops_repo_btn",
                                  help="Click to explore the project repository"):
                         st.info("Repository link would open here")
@@ -1491,6 +1518,80 @@ def render_projects():
                      4. **Remediation:** The system executes appropriate self-healing actions based on the analysis
                      5. **Learning:** Results from actions are fed back to improve future RCA accuracy
                      """)
+
+                # Show demo if button is clicked
+                if st.session_state.show_autoops_demo:
+                    st.markdown("---")
+                    st.markdown('<h3 style="color: #6366f1; margin-top: 1rem;">🎬 AutoOps Demo</h3>',
+                                unsafe_allow_html=True)
+                    st.markdown("""
+                    Experience the AutoOps system in action! This interactive demo showcases the self-healing capabilities, 
+                    root cause analysis, and automated remediation features of the AutoOps platform.
+                    """)
+
+                    # Demo container with embedded Figma
+                    st.markdown("""
+                    <div style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); padding: 2rem; border-radius: 16px; border: 1px solid #475569; box-shadow: 0 8px 32px rgba(0,0,0,0.2); margin: 1.5rem 0;">
+                        <div style="text-align: center; margin-bottom: 1.5rem;">
+                            <h4 style="color: #fbbf24; margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600;">Interactive AutoOps Demo</h4>
+                            <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">Explore the Figma prototype to see AutoOps in action</p>
+                        </div>
+                        <div style="position: relative; width: 100%; height: 600px; border-radius: 12px; overflow: hidden; border: 1px solid #64748b;">
+                            <iframe 
+                                src="https://grey-disc-61921534.figma.site/" 
+                                style="width: 100%; height: 100%; border: none;"
+                                title="AutoOps Demo"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <a href="https://grey-disc-61921534.figma.site/" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                                🚀 Open Demo in New Tab
+                            </a>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                    # Demo features explanation
+                    st.markdown("---")
+                    st.markdown('<h4 style="color: #6366f1;">Demo Features</h4>', unsafe_allow_html=True)
+
+                    demo_col1, demo_col2 = st.columns(2)
+
+                    with demo_col1:
+                        st.markdown("""
+                        ### 🎯 What You'll Experience
+
+                        **Interactive Workflow:**
+                        - Real-time log monitoring dashboard
+                        - Automated failure detection and alerting
+                        - LLM-powered root cause analysis
+                        - Self-healing action execution
+                        - Performance metrics and analytics
+
+                        **Key Capabilities:**
+                        - Multi-platform log collection
+                        - Intelligent pattern recognition
+                        - Automated remediation workflows
+                        - Real-time status updates
+                        """)
+
+                    with demo_col2:
+                        st.markdown("""
+                        ### 🚀 Demo Highlights
+
+                        **Self-Healing Scenarios:**
+                        - ETL pipeline failure detection
+                        - Automatic retry mechanisms
+                        - Smart rollback procedures
+                        - Fallback strategy execution
+
+                        **User Experience:**
+                        - Intuitive dashboard interface
+                        - Real-time notifications
+                        - Detailed incident reports
+                        - Performance optimization insights
+                        """)
         elif card.get("is_doc_intel", False):
             # Create a custom expandable section for Document Intelligence
             with st.expander(f"{card['emoji']} {card['title']}", expanded=False):
@@ -1518,15 +1619,20 @@ def render_projects():
                 </div>
                 """, unsafe_allow_html=True)
 
-                # Add Streamlit buttons for Document Intelligence architecture and repo inside the card
+                # Add Streamlit buttons for Document Intelligence architecture, demo, and repo inside the card
                 st.markdown('<div style="margin: 1.5rem 0;">', unsafe_allow_html=True)
-                col1, col2 = st.columns(2)
+                col1, col2, col3 = st.columns(3)
                 with col1:
                     if st.button("🏗️ View Architecture", key="doc_intel_arch_btn",
                                  help="Click to view the detailed architecture diagram"):
                         st.session_state.show_doc_intel_arch = not st.session_state.show_doc_intel_arch
                         st.rerun()
                 with col2:
+                    if st.button("🎬 View Demo", key="doc_intel_demo_btn",
+                                 help="Click to view the Document Intelligence demo"):
+                        st.session_state.show_doc_intel_demo = not st.session_state.show_doc_intel_demo
+                        st.rerun()
+                with col3:
                     if st.button("📂 Explore Repository", key="doc_intel_repo_btn",
                                  help="Click to explore the project repository"):
                         st.info("Repository link would open here")
@@ -1730,6 +1836,80 @@ def render_projects():
                     5. **Visualization:** Interactive graphs are created to visualize pipeline dependencies
                     6. **Delivery:** Final documentation is delivered through various channels (UI, exports, APIs)
                     """)
+
+                # Show demo if button is clicked
+                if st.session_state.show_doc_intel_demo:
+                    st.markdown("---")
+                    st.markdown('<h3 style="color: #6366f1; margin-top: 1rem;">🎬 Document Intelligence Demo</h3>',
+                                unsafe_allow_html=True)
+                    st.markdown("""
+                    Experience the Document Intelligence system in action! This interactive demo showcases the automated documentation generation, 
+                    LLM enhancement capabilities, and intelligent pipeline analysis features of the Document Intelligence platform.
+                    """)
+
+                    # Demo container with embedded Figma
+                    st.markdown("""
+                    <div style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); padding: 2rem; border-radius: 16px; border: 1px solid #475569; box-shadow: 0 8px 32px rgba(0,0,0,0.2); margin: 1.5rem 0;">
+                        <div style="text-align: center; margin-bottom: 1.5rem;">
+                            <h4 style="color: #fbbf24; margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600;">Interactive Document Intelligence Demo</h4>
+                            <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">Explore the Figma prototype to see Document Intelligence in action</p>
+                        </div>
+                        <div style="position: relative; width: 100%; height: 600px; border-radius: 12px; overflow: hidden; border: 1px solid #64748b;">
+                            <iframe 
+                                src="https://python-sway-78501293.figma.site/" 
+                                style="width: 100%; height: 100%; border: none;"
+                                title="Document Intelligence Demo"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <a href="https://python-sway-78501293.figma.site/" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                                🚀 Open Demo in New Tab
+                            </a>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                    # Demo features explanation
+                    st.markdown("---")
+                    st.markdown('<h4 style="color: #6366f1;">Demo Features</h4>', unsafe_allow_html=True)
+
+                    demo_col1, demo_col2 = st.columns(2)
+
+                    with demo_col1:
+                        st.markdown("""
+                        ### 🎯 What You'll Experience
+
+                        **Documentation Workflow:**
+                        - Pipeline definition extraction from multiple sources
+                        - Automated documentation generation in various formats
+                        - LLM-powered content enhancement and summarization
+                        - Interactive graph visualization of pipeline dependencies
+                        - Real-time documentation updates and versioning
+
+                        **Key Capabilities:**
+                        - Multi-format documentation (Markdown, Confluence, Word)
+                        - Intelligent content analysis and improvement
+                        - Visual pipeline mapping and dependency tracking
+                        - Automated quality assurance and consistency checks
+                        """)
+
+                    with demo_col2:
+                        st.markdown("""
+                        ### 🚀 Demo Highlights
+
+                        **Intelligence Features:**
+                        - Natural language processing of technical content
+                        - Automated generation of executive summaries
+                        - Smart identification of pipeline bottlenecks
+                        - Intelligent suggestions for documentation improvements
+
+                        **User Experience:**
+                        - Intuitive documentation dashboard
+                        - Real-time collaboration features
+                        - Export capabilities for various platforms
+                        - Integration with existing documentation systems
+                        """)
         elif card.get("is_virtual_dl", False):
             # Create a custom expandable section for Virtual DataLake
             with st.expander(f"{card['emoji']} {card['title']}", expanded=False):
@@ -1754,15 +1934,20 @@ def render_projects():
                 </div>
                 """, unsafe_allow_html=True)
 
-                # Add Streamlit buttons for Virtual DataLake architecture and repo inside the card
+                # Add Streamlit buttons for Virtual DataLake architecture, demo, and repo inside the card
                 st.markdown('<div style="margin: 1.5rem 0;">', unsafe_allow_html=True)
-                col1, col2 = st.columns(2)
+                col1, col2, col3 = st.columns(3)
                 with col1:
                     if st.button("🏗️ View Architecture", key="virtual_dl_arch_btn",
                                  help="Click to view the detailed architecture diagram"):
                         st.session_state.show_virtual_dl_arch = not st.session_state.show_virtual_dl_arch
                         st.rerun()
                 with col2:
+                    if st.button("🎬 View Demo", key="virtual_dl_demo_btn",
+                                 help="Click to view the Virtual DataLake demo"):
+                        st.session_state.show_virtual_dl_demo = not st.session_state.show_virtual_dl_demo
+                        st.rerun()
+                with col3:
                     if st.button("📂 Explore Repository", key="virtual_dl_repo_btn",
                                  help="Click to explore the project repository"):
                         st.info("Repository link would open here")
@@ -2049,6 +2234,80 @@ def render_projects():
                     7. **Delivery:** Results are returned in requested format
                     8. **Learning:** System learns from query patterns and results
                     """)
+
+                # Show demo if button is clicked
+                if st.session_state.show_virtual_dl_demo:
+                    st.markdown("---")
+                    st.markdown('<h3 style="color: #6366f1; margin-top: 1rem;">🎬 Virtual DataLake Demo</h3>',
+                                unsafe_allow_html=True)
+                    st.markdown("""
+                    Experience the Virtual DataLake system in action! This interactive demo showcases the federated data access capabilities, 
+                    natural language query processing, and unified data governance features of the Virtual DataLake platform.
+                    """)
+
+                    # Demo container with embedded Figma
+                    st.markdown("""
+                    <div style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); padding: 2rem; border-radius: 16px; border: 1px solid #475569; box-shadow: 0 8px 32px rgba(0,0,0,0.2); margin: 1.5rem 0;">
+                        <div style="text-align: center; margin-bottom: 1.5rem;">
+                            <h4 style="color: #fbbf24; margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600;">Interactive Virtual DataLake Demo</h4>
+                            <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">Explore the Figma prototype to see Virtual DataLake in action</p>
+                        </div>
+                        <div style="position: relative; width: 100%; height: 600px; border-radius: 12px; overflow: hidden; border: 1px solid #64748b;">
+                            <iframe 
+                                src="https://native-golden-15301486.figma.site/" 
+                                style="width: 100%; height: 100%; border: none;"
+                                title="Virtual DataLake Demo"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <a href="https://native-golden-15301486.figma.site/" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                                🚀 Open Demo in New Tab
+                            </a>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                    # Demo features explanation
+                    st.markdown("---")
+                    st.markdown('<h4 style="color: #6366f1;">Demo Features</h4>', unsafe_allow_html=True)
+
+                    demo_col1, demo_col2 = st.columns(2)
+
+                    with demo_col1:
+                        st.markdown("""
+                        ### 🎯 What You'll Experience
+
+                        **Query Workflow:**
+                        - Natural language prompt input and processing
+                        - Automatic SQL translation and optimization
+                        - Multi-source data federation and query planning
+                        - Real-time query execution across distributed systems
+                        - Intelligent result formatting and delivery
+
+                        **Key Capabilities:**
+                        - 100+ data source connectors (Salesforce, PostgreSQL, Snowflake, S3)
+                        - Natural language to SQL conversion
+                        - Federated query execution via Presto/Trino
+                        - Unified data governance and access control
+                        """)
+
+                    with demo_col2:
+                        st.markdown("""
+                        ### 🚀 Demo Highlights
+
+                        **Federation Features:**
+                        - Seamless access to multiple data sources
+                        - Intelligent query routing and optimization
+                        - Real-time data integration and caching
+                        - Performance monitoring and analytics
+
+                        **User Experience:**
+                        - Intuitive query interface with natural language support
+                        - Real-time query status and progress tracking
+                        - Interactive result visualization and export options
+                        - Advanced query history and optimization suggestions
+                        """)
         elif card.get("is_synthetic_data", False):
             # Create a custom expandable section for Synthetic Data Generator
             with st.expander(f"{card['emoji']} {card['title']}", expanded=False):
@@ -2073,15 +2332,20 @@ def render_projects():
                 </div>
                 """, unsafe_allow_html=True)
 
-                # Add Streamlit buttons for Synthetic Data Generator architecture and repo inside the card
+                # Add Streamlit buttons for Synthetic Data Generator architecture, demo, and repo inside the card
                 st.markdown('<div style="margin: 1.5rem 0;">', unsafe_allow_html=True)
-                col1, col2 = st.columns(2)
+                col1, col2, col3 = st.columns(3)
                 with col1:
                     if st.button("🏗️ View Architecture", key="synthetic_data_arch_btn",
                                  help="Click to view the detailed architecture diagram"):
                         st.session_state.show_synthetic_data_arch = not st.session_state.show_synthetic_data_arch
                         st.rerun()
                 with col2:
+                    if st.button("🎬 View Demo", key="synthetic_data_demo_btn",
+                                 help="Click to view the Synthetic Data Generator demo"):
+                        st.session_state.show_synthetic_data_demo = not st.session_state.show_synthetic_data_demo
+                        st.rerun()
+                with col3:
                     if st.button("📂 Explore Repository", key="synthetic_data_repo_btn",
                                  help="Click to explore the project repository"):
                         st.info("Repository link would open here")
@@ -2377,6 +2641,80 @@ def render_projects():
                         - **Data Sharing:** Share data with partners without exposing sensitive information
                         - **Demo Environments:** Realistic data for sales demonstrations
                         """)
+
+                # Show demo if button is clicked
+                if st.session_state.show_synthetic_data_demo:
+                    st.markdown("---")
+                    st.markdown('<h3 style="color: #6366f1; margin-top: 1rem;">🎬 Synthetic Data Generator Demo</h3>',
+                                unsafe_allow_html=True)
+                    st.markdown("""
+                    Experience the Synthetic Data Generator system in action! This interactive demo showcases the AI-powered synthetic data generation capabilities, 
+                    industry-specific templates, and scalable data creation features of the Synthetic Data Generator platform.
+                    """)
+
+                    # Demo container with embedded Figma
+                    st.markdown("""
+                    <div style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); padding: 2rem; border-radius: 16px; border: 1px solid #475569; box-shadow: 0 8px 32px rgba(0,0,0,0.2); margin: 1.5rem 0;">
+                        <div style="text-align: center; margin-bottom: 1.5rem;">
+                            <h4 style="color: #fbbf24; margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600;">Interactive Synthetic Data Generator Demo</h4>
+                            <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">Explore the Figma prototype to see Synthetic Data Generator in action</p>
+                        </div>
+                        <div style="position: relative; width: 100%; height: 600px; border-radius: 12px; overflow: hidden; border: 1px solid #64748b;">
+                            <iframe 
+                                src="https://melody-magic-42105748.figma.site/" 
+                                style="width: 100%; height: 100%; border: none;"
+                                title="Synthetic Data Generator Demo"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <a href="https://melody-magic-42105748.figma.site/" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                                🚀 Open Demo in New Tab
+                            </a>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                    # Demo features explanation
+                    st.markdown("---")
+                    st.markdown('<h4 style="color: #6366f1;">Demo Features</h4>', unsafe_allow_html=True)
+
+                    demo_col1, demo_col2 = st.columns(2)
+
+                    with demo_col1:
+                        st.markdown("""
+                        ### 🎯 What You'll Experience
+
+                        **Data Generation Workflow:**
+                        - Seed data and metadata input processing
+                        - Constraint and business rule application
+                        - AI-powered synthetic data generation
+                        - Industry-specific template utilization
+                        - Large-scale dataset creation and validation
+
+                        **Key Capabilities:**
+                        - Multi-format data generation (CSV, Parquet, JSON)
+                        - Healthcare and finance industry templates
+                        - Realistic data patterns and relationships
+                        - Scalable generation for billion+ records
+                        """)
+
+                    with demo_col2:
+                        st.markdown("""
+                        ### 🚀 Demo Highlights
+
+                        **Generation Features:**
+                        - Intelligent pattern recognition and replication
+                        - Automated data quality validation
+                        - Custom constraint and rule definition
+                        - Performance optimization for large datasets
+
+                        **User Experience:**
+                        - Intuitive template selection interface
+                        - Real-time generation progress tracking
+                        - Advanced configuration and customization options
+                        - Export capabilities for various data formats
+                        """)
         elif card.get("is_dqm_etl", False):
             # Create a custom expandable section for DQM & ETL Testing Framework
             with st.expander(f"{card['emoji']} {card['title']}", expanded=False):
@@ -2404,15 +2742,20 @@ def render_projects():
                 </div>
                 """, unsafe_allow_html=True)
 
-                # Add Streamlit buttons for DQM & ETL Testing Framework architecture and repo inside the card
+                # Add Streamlit buttons for DQM & ETL Testing Framework architecture, demo, and repo inside the card
                 st.markdown('<div style="margin: 1.5rem 0;">', unsafe_allow_html=True)
-                col1, col2 = st.columns(2)
+                col1, col2, col3 = st.columns(3)
                 with col1:
                     if st.button("🏗️ View Architecture", key="dqm_etl_arch_btn",
                                  help="Click to view the detailed architecture diagram"):
                         st.session_state.show_dqm_etl_arch = not st.session_state.show_dqm_etl_arch
                         st.rerun()
                 with col2:
+                    if st.button("🎬 View Demo", key="dqm_etl_demo_btn",
+                                 help="Click to view the DQM & ETL Testing Framework demo"):
+                        st.session_state.show_dqm_etl_demo = not st.session_state.show_dqm_etl_demo
+                        st.rerun()
+                with col3:
                     if st.button("📂 Explore Repository", key="dqm_etl_repo_btn",
                                  help="Click to explore the project repository"):
                         st.info("Repository link would open here")
@@ -2769,6 +3112,81 @@ def render_projects():
                         - **Compliance:** Meet regulatory and compliance requirements
                         - **Risk Reduction:** Minimize business risks from poor data quality
                         """)
+
+            # Show demo if button is clicked
+            if st.session_state.show_dqm_etl_demo:
+                st.markdown("---")
+                st.markdown('<h3 style="color: #6366f1; margin-top: 1rem;">🎬 DQM & ETL Testing Framework Demo</h3>',
+                            unsafe_allow_html=True)
+                st.markdown("""
+                Experience the DQM & ETL Testing Framework system in action! This interactive demo showcases the data quality management capabilities,
+                automated testing workflows, and comprehensive validation features of the DQM & ETL Testing Framework platform.
+                """)
+
+                # Demo container with embedded Figma
+                st.markdown("""
+                <div style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); padding: 2rem; border-radius: 16px; border: 1px solid #475569; box-shadow: 0 8px 32px rgba(0,0,0,0.2); margin: 1.5rem 0;">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <h4 style="color: #fbbf24; margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600;">Interactive DQM & ETL Testing Framework Demo</h4>
+                        <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">Explore the Figma prototype to see DQM & ETL Testing Framework in action</p>
+                    </div>
+                    <div style="position: relative; width: 100%; height: 600px; border-radius: 12px; overflow: hidden; border: 1px solid #64748b;">
+                        <iframe
+                            src="https://plank-shove-92204675.figma.site/"
+                            style="width: 100%; height: 100%; border: none;"
+                            title="DQM & ETL Testing Framework Demo"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="https://plank-shove-92204675.figma.site/" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                            🚀 Open Demo in New Tab
+                        </a>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+                # Demo features explanation
+                st.markdown("---")
+                st.markdown('<h4 style="color: #6366f1;">Demo Features</h4>', unsafe_allow_html=True)
+
+                demo_col1, demo_col2 = st.columns(2)
+
+                with demo_col1:
+                    st.markdown("""
+                    ### 🎯 What You'll Experience
+
+                    **Testing Workflow:**
+                    - Test definition and configuration management
+                    - Automated test execution across data sources
+                    - Real-time validation and quality monitoring
+                    - Comprehensive reporting and alerting
+                    - Integration with CI/CD pipelines
+
+                    **Key Capabilities:**
+                    - Schema validation and constraint checking
+                    - Cross-stage reconciliation testing
+                    - Automated regression testing
+                    - AI-powered anomaly detection
+                    """)
+
+                with demo_col2:
+                    st.markdown("""
+                    ### 🚀 Demo Highlights
+
+                    **Quality Management:**
+                    - Visual data quality dashboard
+                    - Real-time test execution monitoring
+                    - Detailed quality reports and metrics
+                    - Automated alerting for quality issues
+                    - Historical trend analysis
+
+                    **User Experience:**
+                    - Intuitive test configuration interface
+                    - Real-time test status and progress tracking
+                    - Interactive result visualization
+                    - Advanced filtering and drill-down capabilities
+                    """)
         elif card.get("is_deployment_framework", False):
             # Create a custom expandable section for Deployment Framework
             with st.expander(f"{card['emoji']} {card['title']}", expanded=False):
@@ -2796,15 +3214,20 @@ def render_projects():
                 </div>
                 """, unsafe_allow_html=True)
 
-                # Add Streamlit buttons for Deployment Framework architecture and repo inside the card
+                # Add Streamlit buttons for Deployment Framework architecture, demo, and repo inside the card
                 st.markdown('<div style="margin: 1.5rem 0;">', unsafe_allow_html=True)
-                col1, col2 = st.columns(2)
+                col1, col2, col3 = st.columns(3)
                 with col1:
                     if st.button("🏗️ View Architecture", key="deployment_framework_arch_btn",
                                  help="Click to view the detailed architecture diagram"):
                         st.session_state.show_deployment_framework_arch = not st.session_state.show_deployment_framework_arch
                         st.rerun()
                 with col2:
+                    if st.button("🎬 View Demo", key="deployment_framework_demo_btn",
+                                 help="Click to view the Deployment Framework demo"):
+                        st.session_state.show_deployment_framework_demo = not st.session_state.show_deployment_framework_demo
+                        st.rerun()
+                with col3:
                     if st.button("📂 Explore Repository", key="deployment_framework_repo_btn",
                                  help="Click to explore the project repository"):
                         st.info("Repository link would open here")
@@ -3204,6 +3627,79 @@ def render_projects():
                         - **Secrets Management:** Secure handling of credentials
                         - **Access Control:** Role-based deployment permissions
                         """)
+
+            # Show demo if button is clicked
+            if st.session_state.show_deployment_framework_demo:
+                st.markdown("---")
+                st.markdown('<h3 style="color: #6366f1; margin-top: 1rem;">🎬 Deployment Framework Demo</h3>',
+                            unsafe_allow_html=True)
+                st.markdown("""
+                Experience the Deployment Framework system in action! This interactive demo showcases the infrastructure as code capabilities,
+                automated provisioning workflows, and comprehensive deployment management features of the Deployment Framework platform.
+                """)
+
+                # Demo container with embedded Figma
+                st.markdown("""
+                <div style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); padding: 2rem; border-radius: 16px; border: 1px solid #475569; box-shadow: 0 8px 32px rgba(0,0,0,0.2); margin: 1.5rem 0;">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <h4 style="color: #fbbf24; margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600;">Interactive Deployment Framework Demo</h4>
+                        <p style="color: #e2e8f0; margin: 0; font-size: 1rem;">Explore the Figma prototype to see Deployment Framework in action</p>
+                    </div>
+                    <div style="position: relative; width: 100%; height: 600px; border-radius: 12px; overflow: hidden; border: 1px solid #64748b;">
+                        <iframe
+                            src="https://king-cash-48842514.figma.site/"
+                            style="width: 100%; height: 100%; border: none;"
+                            title="Deployment Framework Demo"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="https://king-cash-48842514.figma.site/" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                            🚀 Open Demo in New Tab
+                        </a>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+                # Demo features explanation
+                st.markdown("---")
+                st.markdown('<h4 style="color: #6366f1;">Demo Features</h4>', unsafe_allow_html=True)
+
+                demo_col1, demo_col2 = st.columns(2)
+
+                with demo_col1:
+                    st.markdown("""
+                    ### 🎯 What You'll Experience
+
+                    **Infrastructure as Code:**
+                    - YAML/JSON definition management
+                    - Template library and reusable components
+                    - Version control integration
+                    - Multi-cloud provisioning workflows
+
+                    **Deployment Orchestration:**
+                    - Automated resource provisioning
+                    - Dependency management and sequencing
+                    - Health checks and validation
+                    - Rollback and recovery procedures
+                    """)
+
+                with demo_col2:
+                    st.markdown("""
+                    ### 🚀 Demo Highlights
+
+                    **Provisioning Tools:**
+                    - Terraform, AWS CDK, ARM Templates, Pulumi integration
+                    - Multi-cloud deployment capabilities
+                    - State management and resource tracking
+                    - Automated compliance and security checks
+
+                    **CI/CD Integration:**
+                    - GitHub Actions, Azure DevOps, Jenkins workflows
+                    - Automated testing and validation
+                    - Deployment approval workflows
+                    - Real-time deployment monitoring
+                    """)
         else:
             st.markdown(f"""
         <details class="project-accordion">
